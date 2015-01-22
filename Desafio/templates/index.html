@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block corpo %}
+	<div class="searchbar">
+		<div class="wrapper">
+			<form class="formPesquisa" action="" method="post">
+				<input class="campoPesquisa" type="search" name="Buscar">
+			</form>
+		</div>
+	</div>
+
+	<div class="resultado">
+		<div class="arrow-up"></div>
+		<div class="arrow-up interna"></div>
+		<div class="titulo">
+			<img class="logo" src="http://s.glbimg.com/bu/i/fc/5fb2e18d-a47f-4bb8-9a7e-b66871cf53c0.png" />
+			<h1>Pop & Arte</h1>
+		</div>
+		<div class="buscar sugestoes">
+			<p>Sugestões de Busca</p>
+			<ul>
+				<li>Lusac</li>
+				<li>Lusac Anão</li>
+				<li>Lusac Anão Perneta</li>
+			</ul>
+		</div>
+		<div class="buscar naGlobo">
+			<ul>
+				<li>buscar <span>'Lusac Anão'</span> na Globo.com</li>
+			</ul>
+		</div>
+		<div class="buscar naWeb">
+			<ul>
+				<li>buscar <span>'Lusac Anão'</span> na Web</li>
+			</ul>
+		</div>
+	</div>
+{% endblock %}

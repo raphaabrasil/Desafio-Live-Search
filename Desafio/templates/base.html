@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	{% block cabecalho %}
+		<title>Desafio Live Search</title>
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	 {% endblock %}
+	</head>
+	<body>
+		{% block corpo %}
+			<!-- corpo -->
+		{% endblock %}
+	</body>
+	<footer>
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="{% static 'js/functions.js' %}"></script>
+	</footer>
+</html>
