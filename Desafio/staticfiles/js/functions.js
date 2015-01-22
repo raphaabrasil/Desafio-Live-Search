@@ -1,7 +1,7 @@
 $(document).ready(function(){
-	var cont = 0;
 	$('.campoPesquisa').keyup(function( event ) {
-		// alert( $(this).val().length );
+		$('.termoPesquisado').html($(this).val());
+
 		if ($(this).val().length == 0) {
         	$('.resultado').removeClass('is-active');
     	}
