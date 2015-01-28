@@ -3,26 +3,28 @@ function request_ajax(termo) {
 		url: "/json/",
 		dataType: "json"
 	});
+
 	req.done(function(json_data) {
-		var hightlights = json_data.hightlights;
+	  var hightlights = json_data.hightlights;
 		var suggestions = json_data.suggestions;
 		var i = 0;
 		var j = 0;
 		var k = 0;
 		var match;
-		var listTitulo = $('.titulo');
-		var listBusca = $('.busca-json');
+		var $listTitulo = $('.titulo');
+		var $listBusca = $('.busca-json');
+		var querieConvertida = '';
 		termo = termo.toLowerCase();
 		termo = converteTexto(termo);
-		resetaBusca(listTitulo, listBusca);
+		resetaBusca($listTitulo, $listBusca);
 		for (i = 0; i < hightlights.length; i++) {
 			for (j = 0; j < hightlights[i].queries.length; j++) {
-				var querieConvertida = converteTexto(hightlights[i].queries[j]);
+				querieConvertida = converteTexto(hightlights[i].queries[j]);
 				if(querieConvertida.indexOf(termo) === 0 && termo) {
-					criaHeader(hightlights[i], termo, querieConvertida, j. listTitulo, listBusca);
+					criaHeader(hightlights[i], termo, querieConvertida, j, $listTitulo, $listBusca);
 					for (k = 0; k < suggestions.length; k++) {
 						if (suggestions[k].indexOf(querieConvertida) >= 0) {
-							criaRelacionados(suggestions[k], termo, listBusca);
+							criaRelacionados(suggestions[k], termo, $listBusca);
 						}
 					}
 				}
@@ -30,11 +32,14 @@ function request_ajax(termo) {
 		}
 		checaVazio();
 	});
+
 };
+
 function resetaBusca(listTitulo, listBusca) {
 	listBusca.html("");
 	listTitulo.html("");
 }
+
 function criaHeader(caminho, termo, querie, j, listTitulo, listBusca) {
 	var popExibido;
 	var politicaExibido;
@@ -80,26 +85,28 @@ function converteTexto(text) {
 		.replace(/[óòôõ]/g, 'o')
 		.replace(/[úùû]/g, 'u');
 }
+
 function checaVazio() {
+	var $encontrados = $('.encontrados');
 	if ( $('.titulo li').length === 0 ) {
-		$('.encontrados').removeClass('is-active');
+		$encontrados.removeClass('is-active');
 	}
 	else {
-		$('.encontrados').addClass('is-active');
+		$encontrados.addClass('is-active');
 	}
 }
 
-$(document).ready(function(){
-
+$(document).ready(function() {
 	$('.campoPesquisa').keyup(function( event ) {
-		termo = $(this).val();
+		var termo = $(this).val();
 		request_ajax(termo);
 		criaBuscaGeral(termo);
-		if ($(this).val().length === 0) {
-        	$('.resultado').removeClass('is-active');
+		if (termo.length === 0) {
+    	$('.resultado').removeClass('is-active');
     	}
-    	else {
+  	else {
 			$('.resultado').addClass('is-active');
 		}
 	});
+
 });
