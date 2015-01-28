@@ -119,7 +119,7 @@ p, li {
     border: none;
     border-radius: 5px;
     font-size: 20px;
-    padding-left: 40px;
+    padding: 0 10px 0 40px;
     background: url('/static/images/search.png') 7px 7px no-repeat #FFFFFF;
     background-size: 35px;
 }
@@ -141,10 +141,6 @@ p, li {
     border-radius: 5px;
 }
 
-.resultado.is-active {
-    display: block;
-}
-
 .arrow-up {
     width: 0px;
     height: 0px;
@@ -163,11 +159,24 @@ p, li {
     border-bottom: 15px solid #FFFFFF;
 }
 
+.encontrados {
+    display: none;
+}
+
 .titulo {
     font-size: 20px;
     padding: 20px;
+    list-style: none;
     margin-top: -31px;
+}
+
+.titulo li {
     line-height: 34px;
+    margin-bottom: 10px;
+}
+
+.titulo li:last-child {
+    margin-bottom: 0;
 }
 
 .titulo img {
@@ -179,23 +188,38 @@ p, li {
 .buscar ul {
     list-style: none;
 }
+
 .sugestoes ul {
-    margin-top: 25px;
+    margin-top: 15px;
 }
+
 .buscar {
     border-top: 1px solid #e1e1e1;
     padding: 10px 17px;
     color: #716E6E;
 }
+
 .buscar span {
     color: #000000;
 }
+
 .buscar.sugestoes {
     color: #000000;
 }
+
+.buscar a,
+.titulo a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .sugestoes p {
     position: relative;
     float: right;
     font-style: italic;
     color: #BAAFAF;
+}
+
+.is-active {
+    display: block;
 }
