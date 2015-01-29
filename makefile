@@ -1,5 +1,3 @@
-imple Makefile for Django project routines
-
 project=Desafio
 processes=4
 user=www-data # owner of the socket, normally should be nginx user
