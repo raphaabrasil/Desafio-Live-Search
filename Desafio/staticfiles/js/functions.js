@@ -1,7 +1,3 @@
-var teste = function teste () {
-	$('.searchbar').addClass('teste');
-}
-
 function request_ajax(termo) {
 	var req = $.ajax({
 		url: "/json/",
