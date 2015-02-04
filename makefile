@@ -1,12 +1,9 @@
-#!/bin/bash
+all: create_env run
 
-.all: create_venv activate_venv
-
-create_venv:
+create_env:
 	@if [ ! -d ".env" ]; then virtualenv --python=python2.7 --no-site-packages .env; fi;
+	. .env/bin/activate && \
+	pip install -r Requirements/requirements.txt
 
-activate_venv:
-	@source .env/bin/activate;
-	
-
-
+run:
+	. .env/bin/activate && python Desafio/manage.py runserver
